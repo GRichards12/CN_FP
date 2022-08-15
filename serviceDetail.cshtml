@@ -1,0 +1,23 @@
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.ServiceDetail>
+@using ContentModels = BraceDigital.Extensions.ViewModels;
+@{
+    Layout = "Master.cshtml";
+}
+        <div class="m-detailhero">
+            <div class="m-detailhero__heading">
+                <h2>@Umbraco.Field("serviceDescription")</h2>
+            </div>
+            <div class="m-detailhero__descrtrim">
+                <svg height="100pc" width="40pc">
+                    <ellipse cx="17.5pc" cy="20pc" rx="15pc" ry="50pc"
+                             fill="#0076ff" />
+                    <ellipse cx="15.5pc" cy="20pc" rx="15pc" ry="50pc"
+                             fill="#0076ff" fill-opacity="0.5" />
+                </svg>
+            </div>
+            <div class="m-detailhero__descrcontainer">
+                <div class="m-detailhero__description">
+                    <p style="font-weight:100">@Umbraco.Field("serviceDescription")</p>
+                </div>
+            </div>
+        </div>

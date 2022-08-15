@@ -1,0 +1,84 @@
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.ServiceListing>
+@using ContentModels = BraceDigital.Extensions.ViewModels;
+@{
+    Layout = "Master.cshtml";
+}
+<!-- HEADING -->
+<div class="o-wrapper o-wrapper--vh o-wrapper--blue o-wrapper--noload">
+
+    <section class="m-banner">
+
+        <a href="/" class="m-banner__logo"><img src="images/logo/brace-logo.svg" alt="Brace logo" width="320" height="59"></a>
+
+        <h1 class="m-banner__heading">Service Listing</h1>
+
+        <a href="#blog-list" class="m-banner__cta m-banner__cta--align js-smooth_scroll m-bouncer">
+
+            <span class="show-for-sr">Scroll down</span>
+
+            <svg class="e-btn__svg" xmlns="http://www.w3.org/2000/svg" width="20.121" height="82.121" viewBox="0 0 20.121 82.121">
+                <line id="Line_17" data-name="Line 17" x1="80" transform="translate(10.061) rotate(90)" fill="none" stroke="#fd764a" stroke-width="3" />
+                <path id="Path_30" data-name="Path 30" d="M2572.992,1012.629l9,9-9,9" transform="translate(1031.69 -2501.992) rotate(90)" fill="none" stroke="#fd764a" stroke-miterlimit="10" stroke-width="3" />
+            </svg>
+
+        </a>
+
+    </section>
+
+</div>
+
+<div class="o-wrapper o-wrapper--grey">
+
+    <section class="m-categories row">
+
+        <div class="small-12 columns">
+
+            <button type="button" class="m-categories__toggle js-toggleCategories">
+                Filters
+
+                <svg class="m-categories__togglesvg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <path id="Path_349" data-name="Path 349" d="M2572.992,1012.629l9,9-9,9" transform="translate(1031.69 -2563.992) rotate(90)" fill="none" stroke="#fd764a" stroke-miterlimit="10" stroke-width="3" />
+                    <line id="Line_70" data-name="Line 70" y1="18" transform="translate(10.061)" fill="none" stroke="#fd764a" stroke-width="3" />
+                </svg>
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+</div>
+<!--SERVICE CONTENT -->
+
+<div id="services" class="o-wrapper o-wrapper--white m_categories__link">
+    <section class="m-text_grid">
+        <div class="row">
+            <div class="small-12 columns">
+                <h6 class="m-text_grid__heading">Experts at your service</h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="o-wrapper o-wrapper--white">
+                @foreach (var service in CurrentPage.Children)
+                {
+                    <div class="m-text_grid__wrapper js-reveal" data-aos-duration="600" data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-offset="250">
+                        <a href="@service.Url"><h2 class="m-text_grid__title" href="@service.Url">@service.serviceTitle</h2></a>
+                    </div>
+                    <p class="m-text_grid__summary js-reveal" data-aos-duration="600" data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-offset="225">@service.serviceDescriptionSummary</p>
+                    <span class="e-btn m-text_grid__button" class="js-reveal_text" data-aos-duration="600" data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-offset="200">
+                        <span><a href="@service.Url">See more</a></span>
+                        <span class="e-btn__svgwrapper m-text_grid__arrow">
+                            <svg class="e-btn__svg" xmlns="http://www.w3.org/2000/svg" width="52" height="20" viewBox="0 0 52 20">
+                                <path d="M2572.992,1012.629l9,9-9,9" transform="translate(-2531.992 -1011.568)" fill="none" stroke-miterlimit="10" stroke-width="3" stroke="#ff764a" />
+                                <path d="M49.5,0H0" transform="translate(0 10)" fill="none" stroke-width="3" stroke="#ff764a" />
+                            </svg>
+                        </span>
+                    </span>
+                    <br><br><br><br><br><br>
+                }
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
